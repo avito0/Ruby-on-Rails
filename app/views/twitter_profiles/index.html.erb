@@ -1,0 +1,32 @@
+<h1>An awesome competitor to Twitter just came :)</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th>Latest tweet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @twitter_profiles.each do |twitter_profile| %>
+      <tr>
+        <td><%= twitter_profile.name %></td>
+        <td><%= twitter_profile.description %></td>
+        <td><%= image_tag(twitter_profile.picture_url, width: 50) if twitter_profile.picture.present? %>
+</td>
+        <td><%= twitter_profile.latest_tweet %></td>
+        <td><%= link_to 'Show', twitter_profile %></td>
+        <td><%= link_to 'Edit', edit_twitter_profile_path(twitter_profile) %></td>
+        <td><%= link_to 'Destroy', twitter_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Twitter profile', new_twitter_profile_path %>

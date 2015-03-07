@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @twitter_profile.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @twitter_profile.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@twitter_profile.picture_url, width: 200) if @twitter_profile.picture.present? %>
+</p>
+
+<p>
+  <strong>Latest tweet:</strong>
+  <%= @twitter_profile.latest_tweet %>
+</p>
+
+<%= link_to 'Edit', edit_twitter_profile_path(@twitter_profile) %> |
+<%= link_to 'Back', twitter_profiles_path %>
